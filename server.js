@@ -35,6 +35,9 @@ modules_dirs.forEach(function (modules_dir) {
 
 app.use(express.static(__dirname + '/public'));
 
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jade');
+
 app.get("/api/v1/symbols/:symbol/:exchange", function(req, res) {
     var symbol = req.params.symbol,
         exchange = req.params.exchange,
@@ -66,6 +69,12 @@ app.get("/api/v1/exchanges", function(req, res) {
     var request = new messages.ExchangesRequest();
     var handler = new HTTPRequestHandler(ws);
     handler.handle(request, req, res);
+});
+
+app.get("/symbols/:symbol/:exchange", function(req, res) {
+    var symbol = req.params.symbol,
+        exchange = req.params.exchange;
+    res.render('symbol', {symbol: symbol, exchange: exchange});
 });
 
 var server = http.createServer(app);
