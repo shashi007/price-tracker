@@ -24,13 +24,6 @@ Example:
     {
       "data": [
         {
-          "exchange": "amagi",
-          "symbols": [
-            "XAUUSD",
-            "XAGUSD"
-          ]
-        },
-        {
           "exchange": "ambito",
           "symbols": [
             "USDARS",
@@ -68,7 +61,6 @@ Example:
         {
           "symbol": "XAUUSD",
           "exchanges": [
-            "amagi",
             "bullionvault"
           ]
         },
@@ -76,10 +68,8 @@ Example:
           "symbol": "USDARSB",
           "exchanges": [
             "ambito",
-            "clarin",
             "cronista",
-            "infobae",
-            "lanacion"
+            "infobae"
           ]
         },
         {
@@ -88,9 +78,7 @@ Example:
             "btc-e",
             "bitfinex",
             "bitstamp",
-            "cexio",
             "coinbase",
-            "coinsetter",
             "okcoin"
           ]
         },
@@ -166,10 +154,10 @@ Example 1:
 
 Example 2:
 
-    $ curl http://localhost:5000/api/v1/symbols/USDARSB/lanacion
+    $ curl http://localhost:5000/api/v1/symbols/USDARSB/cronista
     {
       "data": {
-        "exchange": "lanacion",
+        "exchange": "cronista",
         "symbol": "USDARSB",
         "bid": 13.4,
         "ask": 13.6,
@@ -215,10 +203,10 @@ Fields:
 
 Example:
 
-    $ curl http://localhost:5000/api/v1/symbols/USDARSB/lanacion/series
+    $ curl http://localhost:5000/api/v1/symbols/USDARSB/cronista/series
     {
       "data": {
-        "exchange": "lanacion",
+        "exchange": "cronista",
         "symbol": "USDARSB",
         "series": [
           {
