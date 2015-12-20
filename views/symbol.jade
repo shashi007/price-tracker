@@ -1,16 +1,36 @@
 html
   head
-    title #{symbol}@#{exchange}
+    title #{symbol}@#{exchange} - Price Tracker
     link(href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css", rel="stylesheet")
     link(href="/css/dashboard.css", rel="stylesheet")
-
-    script(type='text/javascript').
-      var symbol = "#{symbol}",
-          exchange = "#{exchange}";
-
-      console.log("symbol", symbol, "exchange", exchange);
 
   div(class=["navbar", "navbar-inverse", "navbar-fixed-top"], role="navigation")
     div(class="container-fluid")
       div(class="navbar-header")
-        a(class="navbar-brand", href="#") #{symbol}@#{exchange} <span style="font-size: small;">(Pricetracker v0.4.1)</span>
+        a(class="navbar-brand", href="#") #{symbol}@#{exchange} <span style="font-size: small;">(Price Tracker v0.6)</span>
+
+  div(class="container-fluid")
+    div(class="row")
+      div(class="main", id="main-quotes")
+        div(class="row hide", id="global-error")
+          div(class="alert alert-danger")
+            ul(id="global-error-msgs", class="list-unstyled")
+        div(class="col-xs-12 col-sm-12 padded-15" id="main-quotes-charts-column")
+          
+
+  script(src="//code.jquery.com/jquery-1.10.2.js")
+  script(src="//code.jquery.com/ui/1.11.1/jquery-ui.js")
+  script(src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js")
+  script(src="//code.highcharts.com/stock/highstock.js")
+  script(src="//code.highcharts.com/stock/modules/exporting.js")
+  script(src="../../lib/messages.js")
+  script(src="../../lib/patterns.js")
+  script(src="../../js/client.js")
+
+  script(type='text/javascript').
+    $(document).ready(function() {
+      var symbol = "#{symbol}",
+          exchange = "#{exchange}";
+
+      console.log("symbol", symbol, "exchange", exchange);
+    });
